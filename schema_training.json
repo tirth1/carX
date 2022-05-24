@@ -1,0 +1,21 @@
+{
+    "SampleFileName": "data_021119920_010222.csv",
+    "LengthOfDateStampInFile": 9,
+    "LengthOfTimeStampInFile": 6,
+    "ColumnNames": {
+        "full_name" : "varchar",
+        "selling_price" : "varchar",
+        "new-price" : "varchar",
+        "year" : "Float",
+        "seller_type" : "varchar",
+        "km_driven" : "varchar",
+        "owner_type" : "varchar",
+        "fuel_type" : "varchar",
+        "transmission_type" : "varchar",
+        "mileage" : "varchar",
+        "engine" : "varchar",
+        "max_power" : "varchar",
+        "seats" : "varchar"
+    },
+    "NumberOfColumns": 13
+}
