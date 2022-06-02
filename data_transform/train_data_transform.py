@@ -23,10 +23,11 @@ class TrainDataTransform:
                 for col in cat_cols:
                     df[col] = df[col].apply(lambda x : "'" + str(x) + "'")
                 
-                df.to_csv(self.good_data_path + "/" + file)
-                logger.log(f"Quotes added successfully!! {file}")
+                df.to_csv(self.good_data_path + "/" + file, index=False)
+                self.logger.log(log_file, f"Quotes added successfully!! {file}")
             log_file.close()
         except Exception as e:
             log_file = open(self.log_file_name, 'a+')
             self.logger.log(log_file, f"Error while adding quotes because: {e}")
             log_file.close()
+            raise e

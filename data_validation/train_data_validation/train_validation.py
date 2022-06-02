@@ -26,16 +26,17 @@ class TrainValidation:
             self.logger.log(self.log_file, "Raw data validation Completed!!")
             
             self.logger.log(self.log_file, "Data Transformations started")
-            self.dataTransform.addQuotesToCategoricalColumns()
+            #self.dataTransform.addQuotesToCategoricalColumns()
             self.logger.log(self.log_file, "Data Transformations completed")
 
             self.logger.log(self.log_file, "DB operations Started!!")
-            self.dbOperation.create_table('training', column_name)
-            self.dbOperation.insert_into_table_good_data('training')
+            self.dbOperation.create_table('data', 'training', column_name)
+            self.dbOperation.insert_into_table('data', 'training')
             self.fileUtils.move_bad_files_to_archive()
-            self.dbOperation.selecting_data_from_table_into_csv('training')
+            self.dbOperation.selecting_data_from_table_into_csv('data', 'training')
             self.fileUtils.delete_existing_data_training_folders()
             self.logger.log(self.log_file, "DB operations Completed!!")
             self.log_file.close()
         except Exception as e:
             self.logger.log(self.log_file, f"-----Training Validation failed because: {e}-----")
+            raise e
