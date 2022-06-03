@@ -134,3 +134,5 @@ training_logs/
 training_archive/
 training_file_from_db/
 training_database/
+artifacts/imgs/
+artifacts/models/
